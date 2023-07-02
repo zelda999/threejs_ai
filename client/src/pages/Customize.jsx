@@ -56,16 +56,15 @@ const Customize = () => {
       // call our backend to generate an ai image!
       setGeneratingImg(true);
 
-      const response = await fetch(
-        "https://threejs-ai-e9te.onrender.com/api/v1/dalle",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt }),
-        }
-      );
+      // http://localhost:9000/api/v1/dalle
+      //https://threejs-ai-e9te.onrender.com/api/v1/dalle
+      const response = await fetch("http://localhost:9000/api/v1/dalle", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt }),
+      });
 
       const data = await response.json();
       handleDecals(type, `data:image/png;base64,${data.photo}`);

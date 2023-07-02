@@ -17,7 +17,12 @@ const CanvasModel = () => {
       className='w-full max-w-full h-full transition-all ease-in'
     >
       <ambientLight intensity={0.5} />
-      <Environment preset='city' />
+      {/* <Environment preset='city' /> */}
+      <Environment
+        files='https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr'
+        background
+        blur={0.5}
+      />
       <CameraRig>
         <Backdrop />
         <Center>
